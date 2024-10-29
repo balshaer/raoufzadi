@@ -1,20 +1,20 @@
-"use client";
-
-import * as React from "react";
-import dayjs from "dayjs";
-import { Calendar as CalendarIcon } from "lucide-react";
-
+import { useState } from "react";
+import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
+import { Button } from "../ui/button";
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
-import { Calendar } from "@/components/ui/calendar";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
+import { CalendarIcon } from "lucide-react";
+import { Calendar } from "../ui/calendar";
 
 export function DatePickerDemo() {
-  const [date, setDate] = React.useState<Date>();
+  const [date, setDate] = useState<Date>();
+
+  const formatDate = (date: Date) => {
+    return new Intl.DateTimeFormat("en-US", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    }).format(date);
+  };
 
   return (
     <Popover>
@@ -27,7 +27,7 @@ export function DatePickerDemo() {
           )}
         >
           <CalendarIcon />
-          {date ? dayjs(date).format("MMM D, YYYY") : <span>Pick a date</span>}
+          {date ? formatDate(date) : <span>Pick a date</span>}
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-auto p-0">
