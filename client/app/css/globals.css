@@ -83,7 +83,7 @@
   }
 
   .section {
-    @apply pb-[100px];
+    @apply pb-[100px] max-md:pb-16;
   }
 
   form {
