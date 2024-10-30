@@ -53,10 +53,10 @@ export default function ServicesSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          {t("OurServices")} 
+          {t("OurServices")}
         </motion.h2>
         <motion.div
-          className="grid grid-cols-1 gap-8 md:grid-cols-3"
+          className="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8"
           variants={containerVariants}
         >
           <ServiceCard
@@ -87,7 +87,7 @@ function ServiceCard({ icon: Icon, title, description, variants }) {
   return (
     <motion.div variants={variants}>
       <Card
-        className="h-60 transition-all duration-300 hover:shadow-lg"
+        className="h-60 transition-all duration-300 hover:shadow-lg max-md:h-max text-center"
         style={{ backgroundColor: "var(--card-background)" }}
       >
         <CardContent className="flex flex-col items-center p-6">

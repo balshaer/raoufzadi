@@ -112,7 +112,7 @@ const LocationSection = () => {
     <section className="section">
       {renderHeader()}
       {renderMap()}
-      <div className="container flex w-full items-start justify-between max-md:py-10 py-20 max-md:flex-col max-md:gap-5">
+      <div className="flex w-full items-start justify-between max-md:flex-col max-md:gap-5">
         {renderAddressSection()}
         {renderHoursSection()}
       </div>

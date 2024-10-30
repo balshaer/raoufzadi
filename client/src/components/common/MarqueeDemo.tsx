@@ -34,14 +34,19 @@ const ReviewCard = ({ img }: { img: string }) => {
         "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]",
       )}
     >
-      <img className="h-full w-full object-cover" loading="lazy" alt="Review" src={img} />
+      <img
+        className="h-full w-full object-cover"
+        loading="lazy"
+        alt="Review"
+        src={img}
+      />
     </figure>
   );
 };
 
 export function MarqueeDemo() {
   return (
-    <div className="relative flex py-20 h-max w-full flex-col items-center justify-center overflow-hidden rounded-lg bg-[var(--background)] md:shadow-xl">
+    <div className="section relative flex h-max w-full flex-col items-center justify-center overflow-hidden rounded-lg bg-[var(--background)]">
       <Marquee pauseOnHover className="[--duration:20s]">
         {firstRow.map((review, index) => (
           <ReviewCard key={index} {...review} />

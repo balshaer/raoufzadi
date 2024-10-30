@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import emailjs from "@emailjs/browser";
+import emailjs from "emailjs-com";
 
 import { toast } from "sonner";
 import i18n from "@/i18n";

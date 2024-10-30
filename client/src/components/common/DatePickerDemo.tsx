@@ -5,16 +5,19 @@ import { cn } from "@/lib/utils";
 import { CalendarIcon } from "lucide-react";
 import { Calendar } from "../ui/calendar";
 
+
 export function DatePickerDemo() {
+
   const [date, setDate] = useState<Date>();
 
   const formatDate = (date: Date) => {
-    return new Intl.DateTimeFormat("en-US", {
-      year: "numeric",
-      month: "short",
-      day: "numeric",
+    return new Intl.DateTimeFormat("en-US", { 
+      year: "numeric", 
+      month: "short", 
+      day: "numeric" 
     }).format(date);
   };
+
 
   return (
     <Popover>
@@ -41,3 +44,5 @@ export function DatePickerDemo() {
     </Popover>
   );
 }
+
+
