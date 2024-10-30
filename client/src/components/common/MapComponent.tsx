@@ -28,7 +28,6 @@ const MapComponent = () => {
         height="600"
         style={{ border: 0, display: loading ? "none" : "block" }}
         allowFullScreen={false}
-        loading="lazy"
         className="m-0 p-0 max-md:h-[300px]"
         referrerPolicy="no-referrer-when-downgrade"
         onLoad={handleMapLoad}

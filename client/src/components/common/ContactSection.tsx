@@ -8,6 +8,7 @@ import emailjs from "emailjs-com";
 import contact from "@/assets/contact.jpg";
 import { toast } from "sonner";
 import i18n from "@/i18n";
+import { Skeleton } from "../ui/skeleton";
 
 export default function ContactSection({ fadeIn }: { fadeIn: any }) {
   const { t } = useTranslation();
@@ -153,12 +154,9 @@ export default function ContactSection({ fadeIn }: { fadeIn: any }) {
       </div>
 
       <div className="h-full w-1/2 max-md:hidden">
-        <img
-          src={contact}
-          alt="raouf"
-          loading="lazy"
-          className="h-full w-full object-cover"
-        />
+        <img src={contact} alt="raouf" className="h-full w-full object-cover" />
+        <Skeleton/>
+        
       </div>
     </motion.section>
   );

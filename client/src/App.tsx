@@ -17,6 +17,7 @@ const App: React.FC = () => {
 
   return (
     <div dir="ltr" className="App z-40">
+      
       <ScrollToTop />
       <Toaster />
       {isloading && <LoadingPage />}
