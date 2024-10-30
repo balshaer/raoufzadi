@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import CustomBookingDialog from "./CustomBookingDialog";
 import { ShimmerButtonDemo } from "./ShimmerButtonDemo";
+import heroImage from "../../assets/hero.jpg";
 
 export default function HeroSection() {
   const { t } = useTranslation();
@@ -41,7 +42,7 @@ export default function HeroSection() {
     >
       <motion.div style={{ y, opacity }} className="absolute inset-0">
         <img
-          src="#/images/hero.jpg"
+          src={heroImage}
           alt="Barber shop background"
           className="h-full w-full object-cover"
         />
