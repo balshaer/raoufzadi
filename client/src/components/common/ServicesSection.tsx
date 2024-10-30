@@ -45,7 +45,7 @@ export default function ServicesSection() {
       <motion.div style={{ y }} className="absolute inset-0 z-0">
         <div className="h-full w-full" style={{ opacity: 0.1 }} />
       </motion.div>
-      <div className=" relative z-10">
+      <div className="relative z-10">
         <motion.h2
           className="mb-12 text-center text-4xl font-bold"
           style={{ color: "var(--headline)" }}
@@ -56,11 +56,12 @@ export default function ServicesSection() {
           {t("OurServices")}
         </motion.h2>
         <motion.div
-          className="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8 max-md:w-full"
+          className="grid grid-cols-1 gap-4 max-md:w-full lg:grid-cols-3 lg:gap-8"
           variants={containerVariants}
         >
           <ServiceCard
             icon={Scissors}
+            
             title={t("ExpertHaircuts")}
             description={t("ExpertHaircutsDescription")}
             variants={itemVariants}
@@ -87,7 +88,8 @@ function ServiceCard({ icon: Icon, title, description, variants }) {
   return (
     <motion.div variants={variants}>
       <Card
-        className="h-60 transition-all duration-300 max-md:w-full hover:shadow-lg max-md:h-max text-center"
+      
+        className="h-60 text-center transition-all duration-300 hover:shadow-lg max-md:h-max max-md:w-full"
         style={{ backgroundColor: "var(--card-background)" }}
       >
         <CardContent className="flex flex-col items-center p-6">

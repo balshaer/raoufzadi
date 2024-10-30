@@ -62,6 +62,10 @@ export default function Header() {
           >
             {t("services")}
           </a>
+
+
+
+
           <button
             onClick={handleAboutClick}
             className="text-[var(--paragraph)] hover:text-[var(--link-hover)]"
@@ -74,10 +78,21 @@ export default function Header() {
           >
             {t("Booking")}
           </button>
+
+          <a
+            href="#contact"
+            className="text-[var(--paragraph)] hover:text-[var(--link-hover)]"
+          >
+            {t("contact")}
+          </a>
+
+
           <SelectLanguage
             currentLanguage={currentLanguage}
             onChange={setCurrentLanguage}
           />
+
+          
         </div>
 
         <button
@@ -122,6 +137,14 @@ export default function Header() {
               >
                 {t("About")}
               </button>
+              <a
+                href="#contact"
+                className="text-xl text-[var(--paragraph)] hover:text-[var(--link-hover)]"
+                onClick={toggleMenu}
+              >
+                {t("contact")}
+              </a>
+
               <SelectLanguage
                 currentLanguage={i18n.language}
                 onChange={changeLanguage}

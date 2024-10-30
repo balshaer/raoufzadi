@@ -89,6 +89,7 @@ export default function ContactSection({ fadeIn }: { fadeIn: any }) {
       whileInView="visible"
       viewport={{ once: true }}
       variants={fadeIn}
+      id="contact"
     >
       <div
         dir={direction}
@@ -155,8 +156,7 @@ export default function ContactSection({ fadeIn }: { fadeIn: any }) {
 
       <div className="h-full w-1/2 max-md:hidden">
         <img src={contact} alt="raouf" className="h-full w-full object-cover" />
-        <Skeleton/>
-        
+        <Skeleton />
       </div>
     </motion.section>
   );
