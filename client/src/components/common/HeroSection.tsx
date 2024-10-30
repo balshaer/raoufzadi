@@ -4,6 +4,8 @@ import { useTranslation } from "react-i18next";
 import CustomBookingDialog from "./CustomBookingDialog";
 import { ShimmerButtonDemo } from "./ShimmerButtonDemo";
 
+import hero from "@/assets/hero.jpg";
+
 export default function HeroSection() {
   const { t } = useTranslation();
   const ref = useRef(null);
@@ -25,7 +27,7 @@ export default function HeroSection() {
   };
 
   const styles = {
-    link: "inline-block rounded-full bg-primary px-8 py-3 text-lg font-semibold text-white transition-colors hover:bg-primary/90",
+    link: "inline-block  rounded-full bg-primary px-8 py-3 text-lg font-semibold text-white transition-colors hover:bg-primary/90",
   };
 
   const [isBookingDialogOpen, setIsBookingDialogOpen] = useState(false);
@@ -41,7 +43,7 @@ export default function HeroSection() {
     >
       <motion.div style={{ y, opacity }} className="absolute inset-0">
         <img
-          src={require('@/assets/hero.jpg')}
+          src={hero}
           alt="Barber shop background"
           className="h-full w-full object-cover"
         />
