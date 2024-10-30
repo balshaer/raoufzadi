@@ -9,6 +9,8 @@ import CustomBookingDialog from "./CustomBookingDialog";
 import SelectLanguage from "./SelectLanguage";
 import { headerAnimation, mobileMenuAnimation } from "@/utils/animations";
 
+import About from "@/assets/About.jpg";
+
 export default function Header() {
   const { t, i18n } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -134,7 +136,7 @@ export default function Header() {
         onClose={() => setIsAboutDialogOpen(false)}
       >
         <img
-          src="../../../app/images/About.jpg"
+          src={About}
           alt="Raouf Zadi"
           className="mx-auto mb-4 h-40 w-40 rounded-full object-cover"
         />
