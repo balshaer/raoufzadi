@@ -41,7 +41,7 @@ export default function HeroSection() {
     >
       <motion.div style={{ y, opacity }} className="absolute inset-0">
         <img
-          src="/app/images/hero.jpg"
+          src="../../../app/images/hero.jpg"
           alt="Barber shop background"
           className="h-full w-full object-cover"
         />

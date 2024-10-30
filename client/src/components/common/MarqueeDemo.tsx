@@ -3,22 +3,22 @@ import Marquee from "../ui/marquee";
 
 const reviews = [
   {
-    img: "/app/images/1.jpg",
+    img: "../../../app/images/1.jpg",
   },
   {
-    img: "/app/images/2.jpg",
+    img: "../../../app/images/2.jpg",
   },
   {
-    img: "/app/images/3.jpg",
+    img: "../../../app/images/3.jpg",
   },
   {
-    img: "/app/images/4.jpg",
+    img: "../../../app/images/4.jpg",
   },
   {
-    img: "/app/images/5.jpg",
+    img: "../../../app/images/5.jpg",
   },
   {
-    img: "/app/images/6.jpg",
+    img: "../../../app/images/6.jpg",
   },
 ];
 

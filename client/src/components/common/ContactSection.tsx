@@ -154,7 +154,7 @@ export default function ContactSection({ fadeIn }: { fadeIn: any }) {
 
       <div className="h-full w-1/2 max-md:hidden">
         <img
-          src="/app/images/contact.jpg"
+          src="../../../app/images/contact.jpg"
           alt="raouf"
           loading="lazy"
           className="h-full w-full object-cover"

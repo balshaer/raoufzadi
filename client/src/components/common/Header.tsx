@@ -134,7 +134,7 @@ export default function Header() {
         onClose={() => setIsAboutDialogOpen(false)}
       >
         <img
-          src="/app/images/About.jpg"
+          src="../../../app/images/About.jpg"
           alt="Raouf Zadi"
           className="mx-auto mb-4 h-40 w-40 rounded-full object-cover"
         />

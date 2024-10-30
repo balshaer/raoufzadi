@@ -6,7 +6,7 @@ export default function Logo() {
     <Link to={"/"}>
       <div className="flex cursor-pointer select-none items-center justify-start gap-2">
         <motion.img
-          src="/app/images/LOGO.svg"
+          src="../../../app/images/LOGO.svg"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.9 }}
