@@ -1,24 +1,30 @@
 import { cn } from "@/lib/utils";
 import Marquee from "../ui/marquee";
+import img1 from "@/assets/img1.jpg";
+import img2 from "@/assets/img2.jpg";
+import img3 from "@/assets/img3.jpg";
+import img4 from "@/assets/img4.jpg";
+import img5 from "@/assets/img5.jpg";
+import img6 from "@/assets/img6.jpg";
 
 const reviews = [
   {
-    img: "#/images/1.jpg",
+    img: img1,
   },
   {
-    img: "#/images/2.jpg",
+    img: img2,
   },
   {
-    img: "#/images/3.jpg",
+    img: img3,
   },
   {
-    img: "#/images/4.jpg",
+    img: img4,
   },
   {
-    img: "#/images/5.jpg",
+    img: img5,
   },
   {
-    img: "#/images/6.jpg",
+    img: img6,
   },
 ];
 
@@ -30,7 +36,7 @@ const ReviewCard = ({ img }: { img: string }) => {
     <figure
       className={cn(
         "relative w-64 cursor-pointer overflow-hidden rounded-xl border p-4",
-        "h-[500px] w-[500px] border-gray-950/[.1] bg-gray-950/[.01] object-cover hover:bg-gray-950/[.05]",
+        "hoverd h-[500px] w-[500px] border-gray-950/[.1] bg-gray-950/[.01] object-cover opacity-60 hover:bg-gray-950/[.05] hover:opacity-95",
         "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]",
       )}
     >

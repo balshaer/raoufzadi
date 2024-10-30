@@ -125,5 +125,9 @@
   "pleaseFillAllFields": "يرجى ملء جميع الحقول",
   "appointmentConfirmed": "تم تأكيد موعدك",
   "failedToSendEmail": "فشل في إرسال البريد الإلكتروني",
-  "back": "رجوع"
+  "back": "رجوع",
+  "notFound": {
+    "title": "لم يتم العثور على الصفحة",
+    "message": "عذرًا، لم نتمكن من العثور على الصفحة التي تبحث عنها."
+  }
 }

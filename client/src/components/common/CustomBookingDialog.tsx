@@ -174,7 +174,7 @@ export default function CustomBookingDialog({
                     onChange={(e) =>
                       handleInputChange("selectedDate", e.target.value)
                     }
-                    className="block w-full rounded-md border-[#010101] bg-[#242629] py-2 pl-10 pr-3 text-lg text-[#fffffe] shadow-sm focus:border-[#faae2b] focus:ring-[#faae2b]"
+                    className="block w-full rounded-md border-[#010101] bg-[#242629] py-2 pl-10 pr-3 text-lg text-[#fffffe] shadow-sm focus:border-[#f3f4f6] focus:ring-[#f3f4f6]"
                   />
                 </div>
               </motion.div>
@@ -203,7 +203,7 @@ export default function CustomBookingDialog({
                     onChange={(e) =>
                       handleInputChange("selectedTime", e.target.value)
                     }
-                    className="block w-full rounded-md border-[#010101] bg-[#242629] py-2 pl-10 pr-3 text-lg text-[#fffffe] shadow-sm focus:border-[#faae2b] focus:ring-[#faae2b]"
+                    className="block w-full rounded-md border-[#010101] bg-[#242629] py-2 pl-10 pr-3 text-lg text-[#fffffe] shadow-sm focus:border-[#f3f4f6] focus:ring-[#f3f4f6]"
                   >
                     <option value="">{t("selectTimePlaceholder")}</option>
                     {timeSlots.map((time) => (
@@ -243,7 +243,7 @@ export default function CustomBookingDialog({
                       onChange={(e) =>
                         handleInputChange("name", e.target.value)
                       }
-                      className="block w-full rounded-md border-[#010101] bg-[#242629] py-2 pl-10 pr-3 text-lg text-[#fffffe] shadow-sm focus:border-[#faae2b] focus:ring-[#faae2b]"
+                      className="block w-full rounded-md border-[#010101] bg-[#242629] py-2 pl-10 pr-3 text-lg text-[#fffffe] shadow-sm focus:border-[#f3f4f6] focus:ring-[#f3f4f6]"
                     />
                   </div>
                 </div>
@@ -264,7 +264,7 @@ export default function CustomBookingDialog({
                       onChange={(e) =>
                         handleInputChange("email", e.target.value)
                       }
-                      className="block w-full rounded-md border-[#010101] bg-[#242629] py-2 pl-10 pr-3 text-lg text-[#fffffe] shadow-sm focus:border-[#faae2b] focus:ring-[#faae2b]"
+                      className="block w-full rounded-md border-[#010101] bg-[#242629] py-2 pl-10 pr-3 text-lg text-[#fffffe] shadow-sm focus:border-[#f3f4f6] focus:ring-[#f3f4f6]"
                     />
                   </div>
                 </div>
@@ -285,14 +285,14 @@ export default function CustomBookingDialog({
                       onChange={(e) =>
                         handleInputChange("phone", e.target.value)
                       }
-                      className="block w-full rounded-md border-[#010101] bg-[#242629] py-2 pl-10 pr-3 text-lg text-[#fffffe] shadow-sm focus:border-[#faae2b] focus:ring-[#faae2b]"
+                      className="block w-full rounded-md border-[#010101] bg-[#242629] py-2 pl-10 pr-3 text-lg text-[#fffffe] shadow-sm focus:border-[#f3f4f6] focus:ring-[#f3f4f6]"
                     />
                   </div>
                 </div>
               </motion.div>
             )}
           </AnimatePresence>
-          {errorMessage && <p className="mt-2 text-red-500">{errorMessage}</p>}
+          {errorMessage && <p className="mt-2 text-red-400">{errorMessage}</p>}
           {successMessage && (
             <p className="mt-2 text-green-500">{successMessage}</p>
           )}
@@ -301,7 +301,7 @@ export default function CustomBookingDialog({
               <button
                 type="button"
                 onClick={prevStep}
-                className="rounded-md border border-[#faae2b] px-4 py-2 text-[#faae2b] hover:bg-[#faae2b] hover:text-[#010101]"
+                className="rounded-md border border-[#f3f4f6] px-4 py-2 text-[#f3f4f6] hover:bg-[#f3f4f6] hover:text-[#010101]"
               >
                 <ArrowLeft className="mr-2 inline-block" />
                 {t("back")}
@@ -311,7 +311,7 @@ export default function CustomBookingDialog({
               <button
                 type="button"
                 onClick={nextStep}
-                className="rounded-md border border-[#faae2b] px-4 py-2 text-[#faae2b] hover:bg-[#faae2b] hover:text-[#010101]"
+                className="rounded-md border border-[#f3f4f6] px-4 py-2 text-[#f3f4f6] hover:bg-[#f3f4f6] hover:text-[#010101]"
               >
                 {t("next")}
                 <ArrowRight className="ml-2 inline-block" />
@@ -320,7 +320,7 @@ export default function CustomBookingDialog({
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className={`rounded-md border border-[#faae2b] px-4 py-2 text-[#faae2b] hover:bg-[#faae2b] hover:text-[#010101] ${
+                className={`rounded-md border border-[#f3f4f6] px-4 py-2 text-[#f3f4f6] hover:bg-[#f3f4f6] hover:text-[#010101] ${
                   isSubmitting ? "cursor-not-allowed opacity-50" : ""
                 }`}
               >

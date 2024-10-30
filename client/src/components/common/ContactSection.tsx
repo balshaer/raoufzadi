@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import emailjs from "emailjs-com";
-
+import contact from "@/assets/contact.jpg";
 import { toast } from "sonner";
 import i18n from "@/i18n";
 
@@ -154,7 +154,7 @@ export default function ContactSection({ fadeIn }: { fadeIn: any }) {
 
       <div className="h-full w-1/2 max-md:hidden">
         <img
-          src="../../../app/images/contact.jpg"
+          src={contact}
           alt="raouf"
           loading="lazy"
           className="h-full w-full object-cover"

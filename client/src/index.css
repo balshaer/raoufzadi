@@ -7,23 +7,23 @@
   --headline: #fffffe;
   --paragraph: #94a1b2;
   --border: #010101;
-  --button: #faae2b;
+  --button: #f3f4f6;
   --scroll: #010101;
-  --button-border: #faae2b;
-  --button-hover: #faae2b;
+  --button-border: #f3f4f6;
+  --button-hover: #f3f4f6;
   --button-text: #010101;
   --button-text-hover: #fffffe;
   --card-background: #242629;
   --card-headline: #fffffe;
   --card-paragraph: #94a1b2;
-  --card-tag-background: #faae2b;
+  --card-tag-background: #f3f4f6;
   --card-tag-text: #fffffe;
   --card-highlight: #fffffe;
-  --link-color: #faae2b;
-  --link-hover: #faae2b;
+  --link-color: #f3f4f6;
+  --link-hover: #f3f4f6;
   --logo-text-color: #fffffe;
   --input-background: #242629;
-  --badge-background: #faae2b;
+  --badge-background: #f3f4f6;
   --badge-text: #fffffe;
   --skeleton-color: #010101;
   --tertiary-color: #010101;
@@ -35,7 +35,7 @@
   --input-border: #242629;
   --selectBox-border: #010101;
   --outline-button-text: #fffffe;
-  --mark: #faae2b;
+  --mark: #f3f4f6;
   --nav: #17181a;
 }
 
@@ -55,10 +55,15 @@ html {
 }
 
 *::selection {
-  background-color: #faae2b;
+  background-color: #f3f4f6;
   color: #000000;
 }
 
 .gradient-button {
-  @apply bg-[var(--button)] text-[var(--button-text)] hover:text-[var(--button-text)];
+  @apply bg-gradient-to-tr from-gray-100 to-gray-300 text-[var(--button-text)];
+}
+
+.bannerimg {
+  transform: rotateX(0deg) rotateY(180deg) !important;
+  transform-style: preserve-3d !important;
 }

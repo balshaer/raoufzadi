@@ -1,11 +1,12 @@
-import { t } from "i18next";
+"use client";
+
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
 
 interface LanguageContextType {
   currentLanguage: any;
-  changeLanguage: (lng: any) => void;
+  changeLanguage: (lng: string) => void;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(
@@ -15,7 +16,7 @@ const LanguageContext = createContext<LanguageContextType | undefined>(
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
   const [currentLanguage, setCurrentLanguage] = useState<string>(() => {
     return localStorage.getItem("selectedLanguage") || "en";
   });
@@ -28,8 +29,11 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({
   };
 
   useEffect(() => {
-    i18n.changeLanguage(currentLanguage);
-  }, [currentLanguage, i18n]);
+    const savedLanguage = localStorage.getItem("selectedLanguage");
+    if (savedLanguage) {
+      i18n.changeLanguage(savedLanguage);
+    }
+  }, []); // Only run on mount
 
   return (
     <LanguageContext.Provider value={{ currentLanguage, changeLanguage }}>

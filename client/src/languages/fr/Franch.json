@@ -125,5 +125,10 @@
   "pleaseFillAllFields": "Veuillez remplir tous les champs",
   "appointmentConfirmed": "Votre rendez-vous a été confirmé",
   "failedToSendEmail": "Échec de l'envoi de l'e-mail",
-  "back": "Retour"
+  "back": "Retour",
+
+  "notFound": {
+    "title": "Page non trouvée",
+    "message": "Désolé, nous n'avons pas pu trouver la page que vous recherchez."
+  }
 }
