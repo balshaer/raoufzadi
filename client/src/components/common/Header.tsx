@@ -63,9 +63,6 @@ export default function Header() {
             {t("services")}
           </a>
 
-
-
-
           <button
             onClick={handleAboutClick}
             className="text-[var(--paragraph)] hover:text-[var(--link-hover)]"
@@ -86,13 +83,10 @@ export default function Header() {
             {t("contact")}
           </a>
 
-
           <SelectLanguage
             currentLanguage={currentLanguage}
             onChange={setCurrentLanguage}
           />
-
-          
         </div>
 
         <button

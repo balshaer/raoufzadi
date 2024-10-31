@@ -2,6 +2,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Scissors, GraduationCap, Brush } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import i18n from "@/i18n";
 
 export default function ServicesSection() {
   const { scrollYProgress } = useScroll();
@@ -61,7 +62,6 @@ export default function ServicesSection() {
         >
           <ServiceCard
             icon={Scissors}
-            
             title={t("ExpertHaircuts")}
             description={t("ExpertHaircutsDescription")}
             variants={itemVariants}
@@ -85,10 +85,11 @@ export default function ServicesSection() {
 }
 
 function ServiceCard({ icon: Icon, title, description, variants }) {
+  const dir = i18n.language === "ar" ? "rtl" : "ltr";
+
   return (
     <motion.div variants={variants}>
       <Card
-      
         className="h-60 text-center transition-all duration-300 hover:shadow-lg max-md:h-max max-md:w-full"
         style={{ backgroundColor: "var(--card-background)" }}
       >
@@ -100,7 +101,11 @@ function ServiceCard({ icon: Icon, title, description, variants }) {
           >
             {title}
           </h3>
-          <p className="text-center" style={{ color: "var(--card-paragraph)" }}>
+          <p
+            dir={dir}
+            className="text-center"
+            style={{ color: "var(--card-paragraph)" }}
+          >
             {description}
           </p>
         </CardContent>

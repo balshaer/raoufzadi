@@ -1,10 +1,14 @@
 import { Instagram, Facebook, MessageCircle, Phone } from "lucide-react";
 import Logo from "../ui/Logo";
 import { t } from "i18next";
+import i18n from "@/i18n";
 
 export default function Footer() {
   const whatsappNumber = "+213557195508";
   const telegramNumber = "+213557195508";
+
+  const dir = i18n.language === "ar" ? "rtl" : "ltr";
+
 
   return (
     <footer className="border-t border-gray-600 bg-[var(--footer-background)] p-8 text-center transition-colors duration-300">
@@ -43,7 +47,7 @@ export default function Footer() {
           </a>
         </div>
       </div>
-      <p className="text-[var(--footer-text)]">
+      <p dir={dir} className="text-[var(--footer-text)]">
         &copy; {new Date().getFullYear()} {t("footerText")}
       </p>
     </footer>

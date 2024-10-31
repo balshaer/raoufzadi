@@ -4,6 +4,7 @@ import { User, Mail, Phone, ArrowRight, ArrowLeft, X } from "lucide-react";
 import emailjs from "@emailjs/browser";
 import { useTranslation } from "react-i18next";
 import i18n from "@/i18n";
+import { toast } from "sonner";
 
 const timeSlots = Array.from({ length: 12 }, (_, i) => `${i + 9}:00`).concat(
   Array.from({ length: 12 }, (_, i) => `${i + 9}:30`),
@@ -44,6 +45,7 @@ export default function CustomBookingDialog({
   const [errorMessage, setErrorMessage] = useState("");
 
   const dir = i18n.language === "ar" ? "rtl" : "ltr";
+  const btndir = i18n.language === "ar" ? "ltr" : "rtl";
 
   useEffect(() => {
     if (isOpen) {
@@ -72,22 +74,24 @@ export default function CustomBookingDialog({
 
   const handleBooking = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!validateForm()) {
-      setErrorMessage(t("pleaseFillAllFields"));
-      return;
-    }
 
     setIsSubmitting(true);
     setSuccessMessage("");
     setErrorMessage("");
 
     try {
+      if (!validateForm()) {
+        toast.error(t("pleaseFillAllFields"));
+        // setErrorMessage(t("pleaseFillAllFields"));
+        return;
+      }
+
       await emailjs.send(
         "service_mvjqvvc",
         "template_1ryzr7b",
         {
           from_name: formData.name,
-          to_name: "YourBusinessName",
+          to_name: "Raouf Zadi",
           email: formData.email,
           phone: formData.phone,
           date: formData.selectedDate,
@@ -102,10 +106,12 @@ export default function CustomBookingDialog({
       );
 
       setSuccessMessage(t("appointmentConfirmed"));
+      toast.success(t("appointmentConfirmed"));
       onClose();
     } catch (error) {
       console.error("Failed to send email:", error);
-      setErrorMessage(t("failedToSendEmail"));
+      toast.error(t("failedToSendEmail"));
+      // setErrorMessage(t("failedToSendEmail"));
     } finally {
       setIsSubmitting(false);
     }
@@ -113,7 +119,9 @@ export default function CustomBookingDialog({
 
   const nextStep = () => {
     if (!validateForm()) {
-      setErrorMessage(t("pleaseFillAllFields"));
+      toast.error(t("pleaseFillAllFields"));
+
+      // setErrorMessage(t("pleaseFillAllFields"));
       return;
     }
     setDirection(1);
@@ -127,22 +135,29 @@ export default function CustomBookingDialog({
 
   if (!isOpen) return null;
 
+  // styles
+
+  const styles = {
+    inputStyle:
+      "block w-full rounded-md border-[var(--background)] bg-[var(--card-background)] py-2 pl-10 pr-3 text-base text-[var(--headline)] shadow-sm focus:border-[var(--headline)] focus:ring-[var(--headline)]",
+  };
+
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#16161a] bg-opacity-50">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-[var(--background)] bg-opacity-50">
       <div
         dir={dir}
-        className="flex h-[80vh] w-full max-w-[600px] flex-col rounded-lg bg-[var(--background)] text-[#fffffe] shadow-xl"
+        className="flex h-[80vh] w-full max-w-[600px] flex-col rounded-lg bg-[var(--background)] text-[var(--headline)] shadow-xl"
       >
-        <div className="flex items-center justify-between border-b border-[#010101] p-6">
-          <h2 className="text-3xl font-bold text-[#fffffe]">
+        <div className="flex items-center justify-between border-b border-[var(--background)] p-6">
+          <h2 className="text-3xl font-bold text-[var(--headline)]">
             {t("bookYourAppointment")}
           </h2>
-          <button
+          <span
             onClick={onClose}
-            className="text-[#94a1b2] hover:text-[#fffffe]"
+            className="bg-none text-[var(--paragraph)] hover:text-[var(--headline)]"
           >
             <X size={24} />
-          </button>
+          </span>
         </div>
         <form
           onSubmit={handleBooking}
@@ -162,7 +177,7 @@ export default function CustomBookingDialog({
               >
                 <label
                   htmlFor="date"
-                  className="block text-lg font-medium text-[#fffffe]"
+                  className="block text-lg font-medium text-[var(--headline)]"
                 >
                   {t("selectDate")}
                 </label>
@@ -174,7 +189,7 @@ export default function CustomBookingDialog({
                     onChange={(e) =>
                       handleInputChange("selectedDate", e.target.value)
                     }
-                    className="block w-full rounded-md border-[#010101] bg-[#242629] py-2 pl-10 pr-3 text-lg text-[#fffffe] shadow-sm focus:border-[#f3f4f6] focus:ring-[#f3f4f6]"
+                    className={styles.inputStyle}
                   />
                 </div>
               </motion.div>
@@ -192,7 +207,7 @@ export default function CustomBookingDialog({
               >
                 <label
                   htmlFor="time"
-                  className="block text-lg font-medium text-[#fffffe]"
+                  className="block text-lg font-medium text-[var(--headline)]"
                 >
                   {t("selectTime")}
                 </label>
@@ -203,7 +218,7 @@ export default function CustomBookingDialog({
                     onChange={(e) =>
                       handleInputChange("selectedTime", e.target.value)
                     }
-                    className="block w-full rounded-md border-[#010101] bg-[#242629] py-2 pl-10 pr-3 text-lg text-[#fffffe] shadow-sm focus:border-[#f3f4f6] focus:ring-[#f3f4f6]"
+                    className={styles.inputStyle}
                   >
                     <option value="">{t("selectTimePlaceholder")}</option>
                     {timeSlots.map((time) => (
@@ -229,12 +244,12 @@ export default function CustomBookingDialog({
                 <div>
                   <label
                     htmlFor="name"
-                    className="block text-lg font-medium text-[#fffffe]"
+                    className="block text-lg font-medium text-[var(--headline)]"
                   >
                     {t("yourName")}
                   </label>
                   <div className="relative mt-2">
-                    <User className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-[#94a1b2]" />
+                    <User className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-[var(--paragraph)]" />
                     <input
                       id="name"
                       type="text"
@@ -243,19 +258,19 @@ export default function CustomBookingDialog({
                       onChange={(e) =>
                         handleInputChange("name", e.target.value)
                       }
-                      className="block w-full rounded-md border-[#010101] bg-[#242629] py-2 pl-10 pr-3 text-lg text-[#fffffe] shadow-sm focus:border-[#f3f4f6] focus:ring-[#f3f4f6]"
+                      className={styles.inputStyle}
                     />
                   </div>
                 </div>
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-lg font-medium text-[#fffffe]"
+                    className="block text-lg font-medium text-[var(--headline)]"
                   >
                     {t("yourEmail")}
                   </label>
                   <div className="relative mt-2">
-                    <Mail className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-[#94a1b2]" />
+                    <Mail className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-[var(--paragraph)]" />
                     <input
                       id="email"
                       type="email"
@@ -264,19 +279,19 @@ export default function CustomBookingDialog({
                       onChange={(e) =>
                         handleInputChange("email", e.target.value)
                       }
-                      className="block w-full rounded-md border-[#010101] bg-[#242629] py-2 pl-10 pr-3 text-lg text-[#fffffe] shadow-sm focus:border-[#f3f4f6] focus:ring-[#f3f4f6]"
+                      className={styles.inputStyle}
                     />
                   </div>
                 </div>
                 <div>
                   <label
                     htmlFor="phone"
-                    className="block text-lg font-medium text-[#fffffe]"
+                    className="block text-lg font-medium text-[var(--headline)]"
                   >
                     {t("yourPhone")}
                   </label>
                   <div className="relative mt-2">
-                    <Phone className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-[#94a1b2]" />
+                    <Phone className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-[var(--paragraph)]" />
                     <input
                       id="phone"
                       type="tel"
@@ -285,7 +300,7 @@ export default function CustomBookingDialog({
                       onChange={(e) =>
                         handleInputChange("phone", e.target.value)
                       }
-                      className="block w-full rounded-md border-[#010101] bg-[#242629] py-2 pl-10 pr-3 text-lg text-[#fffffe] shadow-sm focus:border-[#f3f4f6] focus:ring-[#f3f4f6]"
+                      className={styles.inputStyle}
                     />
                   </div>
                 </div>
@@ -296,36 +311,48 @@ export default function CustomBookingDialog({
           {successMessage && (
             <p className="mt-2 text-green-500">{successMessage}</p>
           )}
-          <div className="mt-4 flex justify-between">
+          <div dir={btndir} className="mt-4 flex justify-between">
             {step > 1 && (
-              <button
+              <motion.button
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 100 }}
+                transition={{ duration: 1 }}
+                dir={btndir}
                 type="button"
                 onClick={prevStep}
-                className="rounded-md border border-[#f3f4f6] px-4 py-2 text-[#f3f4f6] hover:bg-[#f3f4f6] hover:text-[#010101]"
+                className="booking-button hoverd"
               >
                 <ArrowLeft className="mr-2 inline-block" />
                 {t("back")}
-              </button>
+              </motion.button>
             )}
             {step < 3 ? (
-              <button
+              <motion.button
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 100 }}
+                transition={{ duration: 1 }}
+                dir={btndir}
                 type="button"
                 onClick={nextStep}
-                className="rounded-md border border-[#f3f4f6] px-4 py-2 text-[#f3f4f6] hover:bg-[#f3f4f6] hover:text-[#010101]"
+                className="booking-button hoverd"
               >
                 {t("next")}
                 <ArrowRight className="ml-2 inline-block" />
-              </button>
+              </motion.button>
             ) : (
-              <button
+              <motion.button
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 100 }}
+                transition={{ duration: 1 }}
+                dir={btndir}
                 type="submit"
                 disabled={isSubmitting}
-                className={`rounded-md border border-[#f3f4f6] px-4 py-2 text-[#f3f4f6] hover:bg-[#f3f4f6] hover:text-[#010101] ${
+                className={`booking-button hoverd ${
                   isSubmitting ? "cursor-not-allowed opacity-50" : ""
                 }`}
               >
                 {isSubmitting ? t("submitting") : t("confirm")}
-              </button>
+              </motion.button>
             )}
           </div>
         </form>

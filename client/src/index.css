@@ -67,3 +67,7 @@ html {
   transform: rotateX(0deg) rotateY(180deg) !important;
   transform-style: preserve-3d !important;
 }
+
+.booking-button {
+  @apply rounded-md border border-[var(--headline)] px-4 py-2 text-[var(--headline)] hover:bg-[var(--headline)] hover:text-[var(--background)];
+}

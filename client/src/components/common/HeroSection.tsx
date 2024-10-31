@@ -5,6 +5,7 @@ import CustomBookingDialog from "./CustomBookingDialog";
 import { ShimmerButtonDemo } from "./ShimmerButtonDemo";
 import banner from "@/assets/banner.png";
 import useMediaQuery from "@/hooks/useMediaQuery";
+import i18n from "@/i18n";
 
 export default function HeroSection() {
   const { t } = useTranslation();
@@ -33,6 +34,7 @@ export default function HeroSection() {
   const staggerChildren = {
     visible: { transition: { staggerChildren: 0.2 } },
   };
+  const dir = i18n.language === "ar" ? "rtl" : "ltr";
 
   const [isBookingDialogOpen, setIsBookingDialogOpen] = useState(false);
 
@@ -43,7 +45,7 @@ export default function HeroSection() {
   return (
     <motion.section
       ref={ref}
-      className="relative h-screen w-full overflow-hidden"
+      className="relative h-screen w-full overflow-hidden max-md:h-[90vh]"
     >
       <motion.div style={{ y, opacity }} className="absolute inset-0">
         <motion.div
@@ -75,7 +77,7 @@ export default function HeroSection() {
         />
       </motion.div>
 
-      <div className="container relative z-10 flex h-full items-center justify-center px-4 text-center text-[var(--headline)] max-md:h-[600px]">
+      <div className="container relative z-10 flex h-full items-center justify-center px-4 text-center text-[var(--headline)] max-md:h-full">
         <motion.div
           initial="hidden"
           animate="visible"
@@ -89,6 +91,7 @@ export default function HeroSection() {
             {t("about")}
           </motion.h1>
           <motion.p
+            dir={dir}
             variants={fadeInUp}
             className="mb-6 max-w-2xl text-lg sm:text-xl md:text-2xl"
           >
