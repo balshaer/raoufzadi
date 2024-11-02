@@ -1,4 +1,3 @@
-import "animate.css";
 import "../app/css/globals.css";
 import AppRoutes from "@/routes/__routes";
 import { useTranslation } from "react-i18next";
